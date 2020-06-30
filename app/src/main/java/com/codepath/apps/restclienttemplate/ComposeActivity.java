@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -24,6 +27,7 @@ public class ComposeActivity extends AppCompatActivity {
     public static final int MAX_TWEET_LENGTH = 280;
 
     EditText etCompose;
+    TextView tvCharCount;
     Button btnTweet;
 
     TwitterClient client;
@@ -36,7 +40,10 @@ public class ComposeActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient(this);
 
         etCompose = findViewById(R.id.etCompose);
+        tvCharCount = findViewById(R.id.tvCharCount);
         btnTweet = findViewById(R.id.btnTweet);
+
+        tvCharCount.setText(String.valueOf(MAX_TWEET_LENGTH));
 
         // Set click listener on button
         btnTweet.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +55,10 @@ public class ComposeActivity extends AppCompatActivity {
                     return;
                 } else if (tweetContent.length() > MAX_TWEET_LENGTH) {
                     Toast.makeText(ComposeActivity.this, "Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(ComposeActivity.this, tweetContent, Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(ComposeActivity.this, tweetContent, Toast.LENGTH_LONG).show();
-                // Make API call to Twitter to publisht the tweet
+                // Make API call to Twitter to publish the tweet
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Headers headers, JSON json) {
@@ -77,5 +85,23 @@ public class ComposeActivity extends AppCompatActivity {
 
             }
         });
+
+        // create a TextWatcher to tell the user how many characters their tweet has left
+        // modified from https://stackoverflow.com/questions/3013791/live-character-count-for-edittext
+        TextWatcher etComposeWatcher = new TextWatcher() {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //This sets a textview to the current length
+                tvCharCount.setText(String.valueOf(MAX_TWEET_LENGTH - s.length()));
+            }
+
+            public void afterTextChanged(Editable s) {
+            }
+        };
+
+        etCompose.addTextChangedListener(etComposeWatcher);
+
     }
 }
