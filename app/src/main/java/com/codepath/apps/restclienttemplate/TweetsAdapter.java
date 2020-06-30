@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.media.Image;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.text.ParseException;
@@ -77,6 +79,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivProfileImage;
+        ImageView ivImageMedia;
         TextView tvBody;
         TextView tvScreenName;
         TextView tvRelativeTimeStamp;
@@ -87,6 +90,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             tvRelativeTimeStamp = itemView.findViewById(R.id.tvRelativeTimeStamp);
+            ivImageMedia = itemView.findViewById(R.id.ivImageMedia);
         }
 
         public void bind(Tweet tweet) {
@@ -94,6 +98,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvScreenName.setText(tweet.user.screenName);
             tvRelativeTimeStamp.setText(getRelativeTimeAgo(tweet.createdAt));
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            if (tweet.imageMediaUrl != null) {
+                int radius = 10;
+                int margin = 10;
+                Glide.with(context).load(tweet.imageMediaUrl).into(ivImageMedia);
+            }
         }
 
         // USAGE: getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
