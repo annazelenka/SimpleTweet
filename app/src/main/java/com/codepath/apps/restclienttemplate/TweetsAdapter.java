@@ -1,6 +1,8 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.media.Image;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -26,6 +28,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
     Context context;
     List<Tweet> tweets;
+    private static View mRootView;
 
     //Pass in the context and list of tweets
     public TweetsAdapter(Context context, List<Tweet> tweets) {
@@ -41,6 +44,8 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+
+
     // Bind values based on the position of the element
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -48,11 +53,24 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         Tweet tweet = tweets.get(position);
         // Bind the data with the view holder
         holder.bind(tweet);
+
+        updateBackgroundColor();
+    }
+
+    private void updateBackgroundColor() {
+        mRootView.getBackground().setColorFilter(Color.parseColor("#ffffff"), PorterDuff.Mode.DARKEN);
     }
 
     @Override
     public int getItemCount() {
         return tweets.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        mRootView = recyclerView.getRootView();
     }
 
     // Clean all elements in the recycler view
@@ -95,13 +113,22 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
+            tvScreenName.setText("@" + tweet.user.screenName);
             tvRelativeTimeStamp.setText(getRelativeTimeAgo(tweet.createdAt));
-            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            int profileImageRadius = 30;
+            Glide
+                    .with(context)
+                    .load(tweet.user.profileImageUrl)
+                    .transform(new RoundedCorners(profileImageRadius))
+                    .into(ivProfileImage);
+
             if (tweet.imageMediaUrl != null) {
-                int radius = 10;
+                int imageMediaRadius = 70;
                 int margin = 10;
-                Glide.with(context).load(tweet.imageMediaUrl).into(ivImageMedia);
+                Glide.with(context)
+                        .load(tweet.imageMediaUrl)
+                        .transform(new RoundedCorners(imageMediaRadius))
+                        .into(ivImageMedia);
                 ivImageMedia.setVisibility(View.VISIBLE);
             } else {
                 ivImageMedia.setVisibility(View.GONE);
