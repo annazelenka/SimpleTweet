@@ -2,6 +2,7 @@ package com.codepath.apps.restclienttemplate;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Headers;
+
+import static androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL;
 
 public class TimelineActivity extends AppCompatActivity {
     public static final String TAG = "TimelineActivity";
@@ -68,6 +71,9 @@ public class TimelineActivity extends AppCompatActivity {
                 swipeContainer.setRefreshing(false);
             }
         });
+
+        // add gray divider between tweets
+        rvTweets.addItemDecoration(new DividerItemDecoration(rvTweets.getContext(), DividerItemDecoration.VERTICAL));
     }
 
     @Override

@@ -1,11 +1,21 @@
 <resources>
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="colorPrimary">@color/colorTwitterBlue</item>
+        <item name="colorPrimaryDark">@color/colorTwitterBlue</item>
+        <item name="colorAccent">@color/colorWhite</item>
+
+    </style>
+
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">cursive</item>
     </style>
 
     <!-- Application theme. -->
@@ -13,4 +23,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <!--Anna's colors-->
+    <color name="colorTwitterBlue">#00acee</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
