@@ -55,8 +55,6 @@ public class ComposeActivity extends AppCompatActivity {
                     return;
                 } else if (tweetContent.length() > MAX_TWEET_LENGTH) {
                     Toast.makeText(ComposeActivity.this, "Sorry, your tweet is too long", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(ComposeActivity.this, tweetContent, Toast.LENGTH_LONG).show();
                 }
                 // Make API call to Twitter to publish the tweet
                 client.publishTweet(tweetContent, new JsonHttpResponseHandler() {

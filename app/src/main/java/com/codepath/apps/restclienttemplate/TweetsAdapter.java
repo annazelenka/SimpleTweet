@@ -102,6 +102,9 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                 int radius = 10;
                 int margin = 10;
                 Glide.with(context).load(tweet.imageMediaUrl).into(ivImageMedia);
+                ivImageMedia.setVisibility(View.VISIBLE);
+            } else {
+                ivImageMedia.setVisibility(View.GONE);
             }
         }
 
@@ -115,7 +118,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             try {
                 long dateMillis = sf.parse(rawJsonDate).getTime();
                 relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
-                        System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+                        System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, DateUtils.FORMAT_ABBREV_RELATIVE).toString();
             } catch (ParseException e) {
                 Log.e("TweetsAdapter", "failed to parse created_at into relative timestamp");
                 e.printStackTrace();

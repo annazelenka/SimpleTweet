@@ -43,6 +43,7 @@ public class Tweet {
         } catch (JSONException e) {
             Log.d(TAG, "media not found");
             e.printStackTrace();
+            tweet.imageMediaUrl = null;
             return tweet;
         }
 
