@@ -12,15 +12,18 @@
 
     </style>
 
+
     <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
         <item name="android:textSize">30dp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">cursive</item>
     </style>
 
+
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <!--Anna's colors-->
