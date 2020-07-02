@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -106,7 +107,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvName;
         TextView tvScreenName;
         TextView tvRelativeTimeStamp;
-        Button btnExpandTweet;
+        ImageButton btnExpandTweet;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

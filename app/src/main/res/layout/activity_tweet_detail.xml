@@ -14,7 +14,8 @@
         android:layout_marginTop="20dp"
         tools:layout_editor_absoluteX="3dp"
         tools:layout_editor_absoluteY="4dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:background="@color/colorWhite"/>
 
     <TextView
         android:id="@+id/tvName"
@@ -73,12 +74,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivMediaImage"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="4dp"
         android:text="TextView"
         android:textSize="20sp"
         android:textStyle="italic" />
+
+
+    <ImageButton
+        android:id="@+id/btnTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvRelativeTimeStamp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="99dp"
+        android:background="@color/colorWhite"
+        app:srcCompat="@drawable/ic_vector_retweet_stroke" />
+
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="42dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/tvRelativeTimeStamp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/btnTweet"
+        app:srcCompat="@drawable/ic_vector_heart_stroke"
+        android:background="@color/colorWhite"/>
+
 </RelativeLayout>

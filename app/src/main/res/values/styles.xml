@@ -8,7 +8,8 @@
         -->
         <item name="colorPrimary">@color/colorTwitterBlue</item>
         <item name="colorPrimaryDark">@color/colorTwitterBlue</item>
-        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorTwitterBlue</item>
+
 
     </style>
 
@@ -24,6 +25,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:textColor">@color/colorBlack</item>
+
     </style>
 
     <!--Anna's colors-->
