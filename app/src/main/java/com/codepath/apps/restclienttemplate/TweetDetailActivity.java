@@ -209,7 +209,7 @@ public class TweetDetailActivity extends AppCompatActivity {
                         }
                     });
                 } else { // must unretweet
-                    client.unretweet(tweet.id, new JsonHttpResponseHandler() {
+                    client.unfavorite(tweet.id, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Headers headers, JSON json) {
                             Log.i(TAG, "onSuccess to unfavorite");

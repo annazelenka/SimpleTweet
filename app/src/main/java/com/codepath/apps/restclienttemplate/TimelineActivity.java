@@ -75,6 +75,7 @@ public class TimelineActivity extends AppCompatActivity {
                 adapter.addAll(tweetsFromDB);
             }
         });
+        adapter.clear();
         populateHomeTimeline();
 
         // Look up swipe container view

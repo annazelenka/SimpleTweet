@@ -86,7 +86,7 @@ public class TwitterClient extends OAuthBaseClient {
 	}
 
 	public void unfavorite(long favoriteId, JsonHttpResponseHandler handler) {
-		String apiUrl = getApiUrl("favorites/create.json");
+		String apiUrl = getApiUrl("favorites/destroy.json");
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
 		params.put("id", favoriteId);

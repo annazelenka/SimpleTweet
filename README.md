@@ -27,8 +27,8 @@ The following **stretch** features are implemented:
 * [ ] User sees an **indeterminate progress indicator** when any background or network task is happening
 * [ ] User can **select "reply" from detail view to respond to a tweet**
   * [ ] User that wrote the original tweet is **automatically "@" replied in compose**
-* [ ] User can tap a tweet to **open a detailed tweet view**
-  * [ ] User can **take favorite (and unfavorite) or reweet** actions on a tweet
+* [X] User can tap a tweet to **open a detailed tweet view**
+  * [X] User can **take favorite (and unfavorite) or retweet** actions on a tweet
 * [ ] User can view more tweets as they scroll with infinite pagination
 * [ ] Compose tweet functionality is build using modal overlay
 * [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
@@ -48,6 +48,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 submission #1: https://imgur.com/a/ITWsyzh
+submission #2: https://imgur.com/a/4EZgEtz make sure to watch both parts! :)
 
 GIF created with [Kap](https://getkap.co/).
 
@@ -62,7 +63,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2020] [CodePath]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
