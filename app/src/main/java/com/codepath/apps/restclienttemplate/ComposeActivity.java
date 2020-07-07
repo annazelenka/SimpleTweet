@@ -87,16 +87,14 @@ public class ComposeActivity extends AppCompatActivity {
         // create a TextWatcher to tell the user how many characters their tweet has left
         // modified from https://stackoverflow.com/questions/3013791/live-character-count-for-edittext
         TextWatcher etComposeWatcher = new TextWatcher() {
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { /* must be implemented to use TextWatcher */ }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //This sets a textview to the current length
                 tvCharCount.setText(String.valueOf(MAX_TWEET_LENGTH - s.length()));
             }
 
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) { /* must be implemented to use TextWatcher */ }
         };
 
         etCompose.addTextChangedListener(etComposeWatcher);
