@@ -84,7 +84,9 @@ public class ComposeActivity extends AppCompatActivity {
             }
         });
 
-        // create a TextWatcher to tell the user how many characters their tweet has left
+        // create a TextWatcher to tell the user how many characters their tweet has left; 
+        // only onTextChanged needs additional code because character counter isn't affected by 
+        // beforeTextChanged or afterTextChanged methods
         // modified from https://stackoverflow.com/questions/3013791/live-character-count-for-edittext
         TextWatcher etComposeWatcher = new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { /* must be implemented to use TextWatcher */ }
